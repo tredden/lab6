@@ -25,10 +25,34 @@ using namespace std;
 #include "log.h"
 #include "fonts.h"
 
-
 void showName(Rect* r){
     ggprint8b(r, 16, 0x0000ffff, "Taylor Redden");
 }
 
 
+void drawBox(float x, float y){
+    static float weeee=0;
+    weeee++;
+    glColor3f (0.0f, 1.0f, 1.0f);
+    glPushMatrix();
+    glTranslatef(x, y, 0);
+    glRotatef(weeee, 0.0f, 0.0f, 1.0f);
+    glTranslatef(-100, -50, 0);
+    glBegin(GL_QUADS);
+    glVertex2f( 0.0f, 0.0f);
+    glVertex2f( 200.0f, 0.0f);
+    glVertex2f( 200.0f, 100.0f);
+    glVertex2f( 0.0f, 100.0f);
+    glEnd();
 
+    Rect r;
+
+    r.bot = 50;
+    r.left = 100;
+    r.center = 1;
+    ggprint8b(&r, 16, 0x00ff0000, "Taylor Redden");
+
+
+    glPopMatrix();
+
+}
