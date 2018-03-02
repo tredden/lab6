@@ -55,8 +55,10 @@ extern struct timespec timeStart, timeCurrent;
 extern double timeDiff(struct timespec *start, struct timespec *end);
 extern void timeCopy(struct timespec *dest, struct timespec *source);
 
-void showName(Rect* r);
 //-----------------------------------------------------------------------------
+
+void showName(Rect* r);
+void drawBox(float x, float y);
 
 class Global {
 public:
@@ -769,6 +771,7 @@ void render()
 		glVertex2f(0.0f, 0.0f);
 	glEnd();
 	glPopMatrix();
+	drawBox(gl.xres/2, gl.yres/2);
 	if (gl.keys[XK_Up] || g.mouseThrustOn) {
 		int i;
 		//draw thrust
